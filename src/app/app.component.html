@@ -4,3 +4,8 @@
 
 <app-modal-component (closeModal)="handleModalClose()" [isOpen]="isModalOpen"></app-modal-component>
 
+<button (click)="openCanvas()">Show Canvas</button>
+<button (click)="hideCanvas()">Hide Canvas</button>
+<div *ngIf="showCanvas">
+    <canvas #myCanvas></canvas>
+</div>
