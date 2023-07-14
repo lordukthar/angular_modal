@@ -2,7 +2,7 @@
 <button (click)="openModal()">Open Modal</button>
 
 
-<app-modal-component (closeModal)="handleModalClose()" [isOpen]="isModalOpen"></app-modal-component>
+<app-modal-component [apa]="doSomeStuff" [message]="myMessage" (closeModal)="handleModalClose()" [isOpen]="isModalOpen"></app-modal-component>
 
 <button (click)="openCanvas()">Show Canvas</button>
 <button (click)="hideCanvas()">Hide Canvas</button>
