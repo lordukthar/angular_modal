@@ -1,6 +1,9 @@
 
 <button (click)="openModal()">Open Modal</button>
+{{affenRonk}}
 
+
+<button (click)="waitForPromise()">Wait for promise</button>
 
 <app-modal-component [apa]="doSomeStuff" [message]="myMessage" (closeModal)="handleModalClose()" [isOpen]="isModalOpen"></app-modal-component>
 

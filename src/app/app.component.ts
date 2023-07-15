@@ -40,6 +40,36 @@ ngAfterViewChecked() : void {
       }}}
 }
 
+affenRonk = "affen"
+
+waitForPromise(): void{
+
+this.delayedMethod().then((result) => {
+  this.affenRonk = result;
+  console.log('Resolved value:', this.affenRonk);
+});
+
+}
+
+
+get waitForResolve(): string {
+
+
+
+    return "get waitForResolve";
+}
+
+delayedMethod(): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // Resolve the promise with the string value after 3 seconds
+      resolve('Resolved string value');
+    }, 3000);
+  });
+}
+
+
+
 ngAfterViewInit(): void {
   console.log("ngAfterViewInit")
 
