@@ -11,6 +11,20 @@ export class AppComponent implements AfterViewInit, AfterViewChecked {
   @ViewChild('myCanvas', { static: false }) canvasRef?: ElementRef<HTMLCanvasElement>;
     myMessage: string = "Hello from parent component";
 
+    currentState: string = 'state1'; // Initial state
+
+setState1(): void {
+    this.currentState = 'state1';
+  }
+
+  setState2(): void {
+    this.currentState = 'state2';
+  }
+
+  setState3(): void {
+    this.currentState = 'state3';
+  }
+
 
   constructor(private modalComponent: ModalComponentComponent) {
 

@@ -7,6 +7,9 @@
 <button (click)="waitForCanvasPromise()">Wait for waitForCanvasPromise</button>
 <button (click)="doubleCanvasSize()">Double Canvas Size</button>
 
+<button (click)="setState1()">State 1</button>
+<button (click)="setState2()">State 2</button>
+<button (click)="setState3()">State 3</button>
 
 <app-modal-component [apa]="doSomeStuff" [message]="myMessage" (closeModal)="handleModalClose()" [isOpen]="isModalOpen"></app-modal-component>
 
@@ -14,4 +17,15 @@
 <button (click)="hideCanvas()">Hide Canvas</button>
 <div *ngIf="showCanvas">
     <canvas #myCanvas></canvas>
+</div>
+
+<div aria-label="Add Item to Cart" *ngIf="currentState === 'state1'">
+    <h2>State 1 Template Area</h2>
+</div>
+
+<div aria-label="Add Item to Cart" *ngIf="currentState === 'state2'">
+    <h2>State 2 Template Area</h2>
+</div>
+<div aria-label="Add Item to Cart" *ngIf="currentState === 'state3'">
+    <h2>State 3 Template Area</h2>
 </div>
