@@ -59,6 +59,9 @@ get waitForResolve(): string {
     return "get waitForResolve";
 }
 
+
+
+
 delayedMethod(): Promise<string> {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -69,6 +72,31 @@ delayedMethod(): Promise<string> {
 }
 
 
+waitForCanvasPromise(): void{
+
+this.delayedCanvas().then((result) => {
+ // this.affenRonkCanvas = result;
+  console.log('Resolved value:', result);
+  this.showCanvas = true
+});
+}
+
+ doubleCanvasSize(): void {
+  if (this.canvasRef) {
+    const canvas = this.canvasRef.nativeElement;
+    canvas.width *= 2;
+    canvas.height *= 2;
+  }}
+
+
+delayedCanvas(): Promise<ElementRef<HTMLCanvasElement>| undefined> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // Resolve the promise with the string value after 3 seconds
+      resolve(this.canvasRef);
+    }, 3000);
+  });
+}
 
 ngAfterViewInit(): void {
   console.log("ngAfterViewInit")
