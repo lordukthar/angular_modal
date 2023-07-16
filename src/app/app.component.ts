@@ -1,17 +1,38 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import {ModalComponentComponent} from './modal-component/modal-component.component'
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit, AfterViewChecked {
+export class AppComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   @ViewChild('myCanvas', { static: false }) canvasRef?: ElementRef<HTMLCanvasElement>;
     myMessage: string = "Hello from parent component";
+    private subscription: Subscription;
 
     currentState: string = 'state1'; // Initial state
+     currentAsyncState: BehaviorSubject<string> = new BehaviorSubject<string>('state11'); // Initial state
+
+
+    ngOnDestroy() : void {
+    }
+
+
+    // Define state change methods
+      setState11(): void {
+        this.currentAsyncState.next('state11');
+      }
+
+      setState12(): void {
+        this.currentAsyncState.next('state12');
+      }
+
+      setState13(): void {
+        this.currentAsyncState.next('state13');
+      }
 
 setState1(): void {
     this.currentState = 'state1';
@@ -27,7 +48,9 @@ setState1(): void {
 
 
   constructor(private modalComponent: ModalComponentComponent) {
-
+        this.subscription = this.currentAsyncState.subscribe((state) => {
+        console.log('Foo current async', state)
+        });
   }
 
 

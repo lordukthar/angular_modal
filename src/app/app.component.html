@@ -11,6 +11,14 @@
 <button (click)="setState2()">State 2</button>
 <button (click)="setState3()">State 3</button>
 
+<button (click)="setState11()">State async 11</button>
+<button (click)="setState12()">State async 12</button>
+<button (click)="setState13()">State async 13</button>
+
+<div>
+    <h2>Current Async State: {{ currentAsyncState | async }}</h2>
+</div>
+
 <app-modal-component [apa]="doSomeStuff" [message]="myMessage" (closeModal)="handleModalClose()" [isOpen]="isModalOpen"></app-modal-component>
 
 <button (click)="openCanvas()">Show Canvas</button>
